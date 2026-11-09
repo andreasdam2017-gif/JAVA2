@@ -17,19 +17,26 @@ public class view {
 
 	public Region build() {
 		BorderPane layout = new BorderPane();
-		// Keep this menu's background equal to the model's background.
 		layout.backgroundProperty().bind(controller.getModel().backgroundProperty());
 
 		VBox vBox = new VBox();
 
 		Button StartGameBtn = new Button("Start Game");
+		Button ChatBtn = new Button("Chat");
 		Button SettingsMenuBtn = new Button("Settings");
 		Button ExitGameBtn = new Button("Exit");
 
 		Label label = new Label("Hello");
-		vBox.getChildren().addAll(StartGameBtn, SettingsMenuBtn, ExitGameBtn);
+		vBox.getChildren().addAll(StartGameBtn, ChatBtn, SettingsMenuBtn, ExitGameBtn);
 		vBox.setPadding(new Insets(250, 25, 150, 225));
 		layout.setCenter(vBox);
+
+		StartGameBtn.setOnAction(event -> controller.startGame());
+
+		ChatBtn.setOnAction(event -> {
+			ChatView chatView = new ChatView(controller);
+			controller.showMenu(chatView.build(layout));
+		});
 
 		SettingsMenuBtn.setOnAction(event -> {
 			SettingView settingView = new SettingView(controller);
