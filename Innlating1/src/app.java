@@ -11,7 +11,6 @@ public class app extends Application {
     @Override
     public void start(Stage stage) {
         StackPane container = new StackPane();
-        // Both menus use this one shared model through the controller.
         Model model = new Model();
         Controller controller = new Controller(container, model);
         controller.setBackground("bg1.png");

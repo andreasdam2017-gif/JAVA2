@@ -13,9 +13,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class SettingView {
-    private final Controller controller;
+    private final SettingsActions controller;
 
-    public SettingView(Controller controller) {
+    public SettingView(SettingsActions controller) {
         this.controller = controller;
     }
 
@@ -23,14 +23,25 @@ public class SettingView {
 
         BorderPane layout = new BorderPane();
         // Use the same background property as the main menu.
-        layout.backgroundProperty().bind(controller.getModel().backgroundProperty());
+        layout.backgroundProperty().bind(controller.backgroundProperty());
         VBox vBox = new VBox();
         MenuItem Option1 = new MenuItem("Sunrise Background");
         MenuItem Option2 = new MenuItem("Midnight Background");
         MenuButton dropDownMenu = new MenuButton("Background", null, Option1, Option2);
+        MenuItem classicArena = new MenuItem("Classic");
+        MenuItem forestArena = new MenuItem("Forest");
+        MenuItem desertArena = new MenuItem("Desert");
+        MenuButton arenaMenu = new MenuButton("Arena", null, classicArena, forestArena, desertArena);
+
+        // Show the current choice on the button automatically.
+        arenaMenu.textProperty().bind(controller.arenaProperty().concat(" arena"));
+
+        classicArena.setOnAction(event -> controller.setArena("Classic"));
+        forestArena.setOnAction(event -> controller.setArena("Forest"));
+        desertArena.setOnAction(event -> controller.setArena("Desert"));
         Button back = new Button("Return to Main Menu");
 
-        vBox.getChildren().addAll(dropDownMenu, back);
+        vBox.getChildren().addAll(dropDownMenu, arenaMenu, back);
         vBox.setAlignment(Pos.CENTER);
         layout.setCenter(vBox);
 
