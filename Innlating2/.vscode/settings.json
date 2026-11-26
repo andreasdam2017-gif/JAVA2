@@ -1,0 +1,12 @@
+{
+  "java.jdt.ls.java.home": "C:/Program Files/BellSoft/LibericaJDK-25-Full",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-25",
+      "path": "C:/Program Files/BellSoft/LibericaJDK-25-Full",
+      "default": true
+    }
+  ],
+  "java.debug.settings.forceBuildBeforeLaunch": true,
+  "java.debug.settings.onBuildFailureProceed": false
+}
