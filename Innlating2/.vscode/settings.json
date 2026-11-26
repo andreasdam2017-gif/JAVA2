@@ -1,4 +1,6 @@
 {
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
   "java.jdt.ls.java.home": "C:/Program Files/BellSoft/LibericaJDK-25-Full",
   "java.configuration.runtimes": [
     {

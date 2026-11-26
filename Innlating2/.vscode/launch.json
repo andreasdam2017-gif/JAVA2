@@ -6,7 +6,6 @@
       "name": "Run Bombastic",
       "request": "launch",
       "mainClass": "App",
-      "projectName": "Innlating2",
       "cwd": "${workspaceFolder}",
       "javaExec": "C:/Program Files/BellSoft/LibericaJDK-25-Full/bin/java.exe",
       "vmArgs": "--add-modules javafx.controls --enable-native-access=javafx.graphics",
